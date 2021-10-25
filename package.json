@@ -1,0 +1,23 @@
+{
+  "name": "cs340-portfolio-project",
+  "version": "1.0.0",
+  "description": "Portfolio Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dnorton12/CS340-Portfolio-Project.git"
+  },
+  "author": "Dan Norton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dnorton12/CS340-Portfolio-Project/issues"
+  },
+  "homepage": "https://github.com/Dnorton12/CS340-Portfolio-Project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "forever": "^4.0.1"
+  }
+}
