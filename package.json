@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Dnorton12/CS340-Portfolio-Project#readme",
   "dependencies": {
+    "bootstrap": "^5.1.3",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.4",
     "forever": "^4.0.1",
