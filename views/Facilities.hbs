@@ -1,18 +1,6 @@
 <h1>BMP Facilities</h1>
 
-<div class="dropdown" style="padding-bottom: 10px;">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-    Facility Type ID Search
-  </button>
-  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-    <li><a class="dropdown-item active" href="#">1</a></li>
-    <li><a class="dropdown-item" href="#">2</a></li>
-    <li><a class="dropdown-item" href="#">3</a></li>
-    <li><a class="dropdown-item" href="#">4</a></li>
-  </ul>
-</div>
-
-<table class="table table-dark table-hover table-striped">
+<table class="table table-secondary table-hover table-striped">
     <thead>
         <tr>
             <th scope="col">BMP ID</th>
@@ -26,7 +14,7 @@
     </thead>
     <tbody>
         <tr>
-            <th scope="row">1</th>
+            <td>1</td>
             <td>1510 Main St</td>
             <td>Chicago</td>
             <td>Illinois</td>
@@ -35,7 +23,7 @@
             <td>3</td>
         </tr>
         <tr>
-            <th scope="row">2</th>
+            <td>2</td>
             <td>301 Johnson Ave</td>
             <td>Madison</td>
             <td>Wisconsin</td>
@@ -48,29 +36,58 @@
 
 <h5>Add New BMP Facility</h5>
 <form>
-    <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInputValue" placeholder="Street Address where inspection took place" value="">
-        <label for="floatingInputValue">Street Address</label>
+    <div class="row mb-3">
+        <label for="inputInspector" class="col-sm-2 col-form-label">Street Address:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputInspector">
+        </div>
     </div>
-    <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInputValue" placeholder="City where inspection took place" value="">
-        <label for="floatingInputValue">City</label>
+    <div class="row mb-3">
+        <label for="inputInspector" class="col-sm-2 col-form-label">City:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputInspector">
+        </div>
     </div>
-    <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInputValue" placeholder="State in where inspection took place" value="">
-        <label for="floatingInputValue">State</label>
+    <div class="row mb-3">
+        <label for="inputInspector" class="col-sm-2 col-form-label">State:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputInspector">
+        </div>
     </div>
-    <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInputValue" placeholder="Zip Code where inspection took place" value="">
-        <label for="floatingInputValue">Zip Code</label>
+    <div class="row mb-3">
+        <label for="inputInspector" class="col-sm-2 col-form-label">Zip Code:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputInspector">
+        </div>
     </div>
-    <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInputValue" placeholder="Name of inspection site" value="">
-        <label for="floatingInputValue">Name</label>
+    <div class="row mb-3">
+        <label for="inputInspector" class="col-sm-2 col-form-label">Facility Name:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputInspector">
+        </div>
     </div>
-    <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInputValue" placeholder="Type of site inspected" value="">
-        <label for="floatingInputValue">Facility Type ID</label>
+    <div class="row mb-3">
+        <label for="inputInspector" class="col-sm-2 col-form-label">Facility Type ID:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputInspector">
+        </div>
+    </div>
+    <button type="button" class="btn btn-dark">Submit</button>
+</form>
+
+<h5 style="padding-top: 20px;">Search for a facility</h5>
+<form>
+    <div class="row mb-3">
+        <label for="inputInspector" class="col-sm-2 col-form-label">Facility Type ID:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputInspector">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputInspector" class="col-sm-2 col-form-label">BMP ID:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputInspector">
+        </div>
     </div>
     <button type="button" class="btn btn-dark">Submit</button>
 </form>
