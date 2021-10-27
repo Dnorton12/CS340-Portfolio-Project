@@ -54,15 +54,15 @@
 
 <h5>Add New Inspection</h5>
 <form>
-    <div class="form-floating">
+    <div class="form-floating" style="padding-bottom: 10px;">
         <input type="date" class="form-control" id="floatingInputValue" placeholder="mm/dd/yyyy" value="mm/dd/yyyy">
         <label for="floatingInputValue">Inspection Date</label>
     </div>
-    <div class="form-floating">
+    <div class="form-floating" style="padding-bottom: 10px;">
         <input type="text" class="form-control" id="floatingInputValue" placeholder="Name of Inspector" value="">
         <label for="floatingInputValue">Inspector</label>
     </div>
-    <div class="form-floating">
+    <div class="form-floating" style="padding-bottom: 10px;">
         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
             <option selected>Select Yes or No</option>
             <option value="1">Yes</option>
@@ -70,7 +70,7 @@
         </select>
         <label for="floatingSelect">Inspect Embankment</label>
     </div>
-    <div class="form-floating">
+    <div class="form-floating" style="padding-bottom: 10px;">
         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
             <option selected>Select Yes or No</option>
             <option value="1">Yes</option>
@@ -78,7 +78,7 @@
         </select>
         <label for="floatingSelect">Inspect Erosion</label>
     </div>
-    <div class="form-floating">
+    <div class="form-floating" style="padding-bottom: 10px;">
         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
             <option selected>Select Yes or No</option>
             <option value="1">Yes</option>
@@ -86,7 +86,7 @@
         </select>
         <label for="floatingSelect">Inspect Sediment</label>
     </div>
-    <div class="form-floating">
+    <div class="form-floating" style="padding-bottom: 10px;">
         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
             <option selected>Select Yes or No</option>
             <option value="1">Yes</option>
@@ -94,7 +94,7 @@
         </select>
         <label for="floatingSelect">Inspect Ponding</label>
     </div>
-    <div class="form-floating">
+    <div class="form-floating" style="padding-bottom: 10px;">
         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
             <option selected>Select Yes or No</option>
             <option value="1">Yes</option>
@@ -102,7 +102,7 @@
         </select>
         <label for="floatingSelect">Inspect Vegetation</label>
     </div>
-    <div class="form-floating">
+    <div class="form-floating" style="padding-bottom: 10px;">
         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
             <option selected>Select Yes or No</option>
             <option value="1">Yes</option>
@@ -110,7 +110,7 @@
         </select>
         <label for="floatingSelect">Inspect Control Structure</label>
     </div>
-    <div class="form-floating">
+    <div class="form-floating" style="padding-bottom: 10px;">
         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
             <option selected>Select Yes or No</option>
             <option value="1">Yes</option>
@@ -118,7 +118,7 @@
         </select>
         <label for="floatingSelect">Inspect Trash</label>
     </div>
-    <div class="form-floating">
+    <div class="form-floating" style="padding-bottom: 10px;">
         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
             <option selected>Select Yes or No</option>
             <option value="1">Yes</option>
@@ -126,9 +126,22 @@
         </select>
         <label for="floatingSelect">Overall Function</label>
     </div>
-    <div class="form-floating">
+    <div class="form-floating" style="padding-bottom: 10px;">
         <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
         <label for="floatingTextarea2">Comments</label>
+    </div>
+    <button type="button" class="btn btn-dark">Submit</button>
+</form>
+
+<h5 style="padding-top: 20px;">Delete Inspection Report</h5>
+<form>
+    <div class="form-floating" style="padding-bottom: 10px;">
+        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+            <option selected>Please select an inspection id</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+        <label for="floatingSelect">Inspection ID</label>
     </div>
     <button type="button" class="btn btn-dark">Submit</button>
 </form>
