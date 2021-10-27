@@ -2,13 +2,74 @@
 
 <table class="table table-secondary table-hover table-striped">
     <thead>
+
+        {{!-- Inspector data fields (columns/attributes) --}}
         <tr>
-            <th></th>
+            <th>Inspector ID</th>
+            <th>Name</th>
+            <th>Office</th>
+            <th>Phone</th>
+            <th>Email</th>
         </tr>
     </thead>
     <tbody>
+
+        {{!-- Placeholder for inspector data from the DB --}}
         <tr>
-            <td></td>
+            <td>1</td>
+            <td>Josh Johnson</td>
+            <td>110a</td>
+            <td>555-555-1001</td>
+            <td>jjohnson@local.gov</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Tony Smith</td>
+            <td>206</td>
+            <td>555-555-1073</td>
+            <td>tsmith@local.gov</td>
         </tr>
     </tbody>
 </table>
+
+{{!-- Form allows for inserting new inspectors. --}}
+<div class="continer-fluid pt-3 pb-5">
+    <h5>Add Inspector</h5>
+    <form>
+
+        {{!-- Form input for inspector name --}}
+        <div class="row mb-3">
+            <label for="inputInspectorName" class="col-sm-2 col-form-label">Full Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputInspectorName">
+            </div>
+        </div>
+
+        {{!-- Form input for inspector office number --}}
+        <div class="row mb-3">
+            <label for="inputInspectorOffice" class="col-sm-2 col-form-label">Office Number:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputInspectorOffice">
+            </div>
+        </div>
+
+        {{!-- Form input for inspector phone number --}}
+        <div class="row mb-3">
+            <label for="inputInspectorPhone" class="col-sm-2 col-form-label">Phone Number:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputInspectorPhone">
+            </div>
+        </div>
+
+        {{!-- Form input for inspector email address --}}
+        <div class="row mb-3">
+            <label for="inputInspectorEmail" class="col-sm-2 col-form-label">Email Address:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputInspectorEmail">
+            </div>
+        </div>
+
+        {{!-- Form submit --}}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
