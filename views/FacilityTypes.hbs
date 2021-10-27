@@ -1,75 +1,98 @@
-<h1>BMP Facility Types</h1>
+<div class="continer-fluid">
+    <h1>BMP Facility Types</h1>
 
-<table class="table table-dark table-hover table-striped">
-    <thead>
-        <tr>
-            <th scope="col">Type ID</th>
-            <th scope="col">Facility Type</th>
-            <th scope="col">Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{!-- Place holder data. Table rows will be populated from DB. --}}
-        <tr>
-            <td>1</td>
-            <td>Dry Pond</td>
-            <td>Dry ponds, also called “detention ponds”, are designed to retain 
-                stormwater temporarily and drain within two to three days after 
-                the rain stops. Most dry ponds do not contain a permanent pool 
-                of water, and no water will remain if it is functioning properly. 
-                Dry ponds are mostly used to reduce peak runoff of stormwater to 
-                receiving streams to limit downstream flooding and to provide 
-                some degree of channel protection. Dry ponds should be 
-                implemented for drainage areas greater than 10 acres.</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Wet Pond</td>
-            <td>A wet pond is a stormwater management facility, which includes a 
-                permanent pool of water for enhancing water quality additional 
-                capacity above the permanent pool for detaining stormwater runoff. 
-                Wet ponds fill with stormwater and release most of it over a 
-                period of a few days, slowly returning the pond to its normal 
-                depth. Wet ponds require an adequate source of inflow to maintain 
-                the permanent water surface.</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Sand Filter</td>
-            <td>Sand filters, also known as filtration basins, consist of a 
-                pretreatment basin, water storage reservoir, flow spreader, sand 
-                and underdrain piping. A sand filter is a flowthrough system 
-                designed to improve water quality from impervious drainage areas 
-                by slowly filtering runoff through sand. It consists of one or 
-                more filtration and sedimentation chambers to treat runoff. 
-                Sand filters are proposed to address intensely developed urban 
-                areas where the drainage areas are highly impervious. It can be 
-                used on small urban areas where space is limited and where the 
-                soils or groundwater concerns would not support an infiltration 
-                device.</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>Constructed Wetland</td>
-            <td>Constructed wetlands are shallow marsh systems planted with 
-                emergent vegetation that are designed to treat stormwater 
-                runoff. While they are one of the best BMPs for pollutant 
-                removal, artificial wetlands can also lower the peak rates 
-                and even reduce runoff volume. Adequate space and source of 
-                inflow are required to maintain the permanent water surface. 
-                Wetland and marsh systems can have additional stormwater 
-                features that help to attenuate peak storm flows.</td>
-        </tr>
-    </tbody>
-    {{!-- The table footer contains a citation and will remain static. --}}
-    <tfoot>
-        <tr>
-            <td colspan="3">
-                Facility descriptions have been adapted from: Prince George’s 
-                County Government Department of Environmental Resources. (2009). 
-                <em>Stormwater Best Management Practices Inspection Manual</em>. 
-                Maryland.
-            </td>
-        </tr>
-    </tfoot>
-</table>
+    {{!-- Table displays the different types of BMP facilities. --}}
+    <table class="table table-secondary table-hover table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Facility Type ID</th>
+                <th scope="col">Facility Type</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{!-- Place holder data. Table rows will be populated from DB. --}}
+            <tr>
+                <td>1</td>
+                <td>Dry Pond</td>
+                <td>Dry ponds, also called “detention ponds”, are designed to retain
+                    stormwater temporarily and drain within two to three days after
+                    the rain stops. Most dry ponds do not contain a permanent pool
+                    of water, and no water will remain if it is functioning properly.
+                    Dry ponds are mostly used to reduce peak runoff of stormwater to
+                    receiving streams to limit downstream flooding and to provide
+                    some degree of channel protection. Dry ponds should be
+                    implemented for drainage areas greater than 10 acres.</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Wet Pond</td>
+                <td>A wet pond is a stormwater management facility, which includes a
+                    permanent pool of water for enhancing water quality additional
+                    capacity above the permanent pool for detaining stormwater runoff.
+                    Wet ponds fill with stormwater and release most of it over a
+                    period of a few days, slowly returning the pond to its normal
+                    depth. Wet ponds require an adequate source of inflow to maintain
+                    the permanent water surface.</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Sand Filter</td>
+                <td>Sand filters, also known as filtration basins, consist of a
+                    pretreatment basin, water storage reservoir, flow spreader, sand
+                    and underdrain piping. A sand filter is a flowthrough system
+                    designed to improve water quality from impervious drainage areas
+                    by slowly filtering runoff through sand. It consists of one or
+                    more filtration and sedimentation chambers to treat runoff.
+                    Sand filters are proposed to address intensely developed urban
+                    areas where the drainage areas are highly impervious. It can be
+                    used on small urban areas where space is limited and where the
+                    soils or groundwater concerns would not support an infiltration
+                    device.</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Constructed Wetland</td>
+                <td>Constructed wetlands are shallow marsh systems planted with
+                    emergent vegetation that are designed to treat stormwater
+                    runoff. While they are one of the best BMPs for pollutant
+                    removal, artificial wetlands can also lower the peak rates
+                    and even reduce runoff volume. Adequate space and source of
+                    inflow are required to maintain the permanent water surface.
+                    Wetland and marsh systems can have additional stormwater
+                    features that help to attenuate peak storm flows.</td>
+            </tr>
+        </tbody>
+        {{!-- The table footer contains a citation and will remain static. --}}
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    Facility descriptions have been adapted from: Prince George’s
+                    County Government Department of Environmental Resources. (2009).
+                    <em>Stormwater Best Management Practices Inspection Manual</em>.
+                    Maryland. <a href="https://www.princegeorgescountymd.gov/DocumentCenter/View/4788/DepartmentoftheEnvironment-Stormwater-Best-Management-Practices-Inspection-Manual-PDF">www.princegeorgescountymd.gov</a>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+{{!-- Form allows for inserting new BMP facility types. --}}
+<div class="continer-fluid pt-3 pb-5">
+    <h5>Add BMP Facility Type</h5>
+    <form>
+        <div class="row mb-3">
+            <label for="inputTypeName" class="col-sm-2 col-form-label">Name of Facility Type:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputTypeName">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputTypeDesc" class="col-sm-2 col-form-label">Description:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputTypeDesc">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

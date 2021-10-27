@@ -1,0 +1,175 @@
+<h1>BMP Inspections</h1>
+
+<table class="table table-secondary table-hover table-striped">
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+{{!-- Form allows for inserting new BMP inspections. --}}
+<div class="continer-fluid pt-3 pb-5">
+    <h5>Add BMP Inspection</h5>
+    <form>
+
+        {{!-- Form input for BMP facility ID --}}
+        <div class="row mb-3">
+            <label for="inputBMPID" class="col-sm-2 col-form-label">BMP Facility ID:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputBMPID">
+            </div>
+        </div>
+
+        {{!-- Form input for inspection date --}}
+        <div class="row mb-3">
+            <label for="inputInspectionDate" class="col-sm-2 col-form-label">Inspection Date:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputInspectionDate">
+            </div>
+        </div>
+
+        {{!-- Form input for inspector ID --}}
+        <div class="row mb-3">
+            <label for="inputInspector" class="col-sm-2 col-form-label">Inspector ID:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputInspector">
+            </div>
+        </div>
+
+        {{!-- Form input for embankment rating --}}
+        <div class="row mb-3">
+            <label for="inlineFormSelectEmbankment" class="col-sm-2 col-form-label">Embankment Rating:</label>
+            <div class="col-sm-10">
+                <select class="form-select" id="inlineFormSelectEmbankment">
+                    <option selected>Choose...</option>
+                    <option value="0">0 - Not present at this facility</option>
+                    <option value="1">1 - Major repairs or maintenance are required</option>
+                    <option value="2">2 - Minor maintenance is needed</option>
+                    <option value="3">3 - No maintenance necessary at this time</option>
+                </select>
+            </div>
+        </div>
+
+        {{!-- Form input for erosion rating --}}
+        <div class="row mb-3">
+            <label for="inlineFormSelectErosion" class="col-sm-2 col-form-label">Erosion Rating:</label>
+            <div class="col-sm-10">
+                <select class="form-select" id="inlineFormSelectErosion">
+                    <option selected>Choose...</option>
+                    <option value="0">0 - Not present at this facility</option>
+                    <option value="1">1 - Major repairs or maintenance are required</option>
+                    <option value="2">2 - Minor maintenance is needed</option>
+                    <option value="3">3 - No maintenance necessary at this time</option>
+                </select>
+            </div>
+        </div>
+
+        {{!-- Form input for sediment rating --}}
+        <div class="row mb-3">
+            <label for="inlineFormSelectSediment" class="col-sm-2 col-form-label">Sediment Rating:</label>
+            <div class="col-sm-10">
+                <select class="form-select" id="inlineFormSelectSediment">
+                    <option selected>Choose...</option>
+                    <option value="0">0 - Not present at this facility</option>
+                    <option value="1">1 - Major repairs or maintenance are required</option>
+                    <option value="2">2 - Minor maintenance is needed</option>
+                    <option value="3">3 - No maintenance necessary at this time</option>
+                </select>
+            </div>
+        </div>
+
+        {{!-- Form input for ponding rating --}}
+        <div class="row mb-3">
+            <label for="inlineFormSelectPonding" class="col-sm-2 col-form-label">Ponding Rating:</label>
+            <div class="col-sm-10">
+                <select class="form-select" id="inlineFormSelectPonding">
+                    <option selected>Choose...</option>
+                    <option value="0">0 - Not present at this facility</option>
+                    <option value="1">1 - Major repairs or maintenance are required</option>
+                    <option value="2">2 - Minor maintenance is needed</option>
+                    <option value="3">3 - No maintenance necessary at this time</option>
+                </select>
+            </div>
+        </div>
+
+        {{!-- Form input for vegetation rating --}}
+        <div class="row mb-3">
+            <label for="inlineFormSelectVegetation" class="col-sm-2 col-form-label">Vegetation Rating:</label>
+            <div class="col-sm-10">
+                <select class="form-select" id="inlineFormSelectVegetation">
+                    <option selected>Choose...</option>
+                    <option value="0">0 - Not present at this facility</option>
+                    <option value="1">1 - Major repairs or maintenance are required</option>
+                    <option value="2">2 - Minor maintenance is needed</option>
+                    <option value="3">3 - No maintenance necessary at this time</option>
+                </select>
+            </div>
+        </div>
+
+        {{!-- Form input for control structure rating --}}
+        <div class="row mb-3">
+            <label for="inlineFormSelectControlStructure" class="col-sm-2 col-form-label">Control Structure
+                Rating:</label>
+            <div class="col-sm-10">
+                <select class="form-select" id="inlineFormSelectControlStructure">
+                    <option selected>Choose...</option>
+                    <option value="0">0 - Not present at this facility</option>
+                    <option value="1">1 - Major repairs or maintenance are required</option>
+                    <option value="2">2 - Minor maintenance is needed</option>
+                    <option value="3">3 - No maintenance necessary at this time</option>
+                </select>
+            </div>
+        </div>
+
+        {{!-- Form input for trash rating --}}
+        <div class="row mb-3">
+            <label for="inlineFormSelectTrash" class="col-sm-2 col-form-label">Trash Rating:</label>
+            <div class="col-sm-10">
+                <select class="form-select" id="inlineFormSelectTrash">
+                    <option selected>Choose...</option>
+                    <option value="0">0 - Not present at this facility</option>
+                    <option value="1">1 - Major repairs or maintenance are required</option>
+                    <option value="2">2 - Minor maintenance is needed</option>
+                    <option value="3">3 - No maintenance necessary at this time</option>
+                </select>
+            </div>
+        </div>
+
+        {{!-- Form input for overall function --}}
+        <fieldset class="row mb-3">
+            <legend class="col-form-label col-sm-2 pt-0">Overall Function:</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioOverallFunction" id="overallFunctionYes" value="1"
+                        checked>
+                    <label class="form-check-label" for="overallFunctionYes">
+                        Yes, the facility is functioning as intended.
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioOverallFunction" id="overallFunctionNo" value="0">
+                    <label class="form-check-label" for="overallFunctionNo">
+                        No, the facility is not functioning and requires corrective action.
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+
+        {{!-- Form input for comments --}}
+        <div class="row mb-3">
+            <label for="textareaComments" class="col-sm-2 col-form-label">Comments:</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" id="textareaComments"></textarea>
+            </div>
+        </div>
+
+        {{!-- Form submit --}}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
