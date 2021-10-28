@@ -65,11 +65,90 @@
         <div class="row mb-3">
             <label for="inputInspectorEmail" class="col-sm-2 col-form-label">Email Address:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputInspectorEmail">
+                <input type="email" class="form-control" id="inputInspectorEmail">
             </div>
         </div>
 
-        {{!-- Form submit --}}
+        {{!-- Add form submit --}}
         <button type="submit" class="btn btn-dark">Submit</button>
+    </form>
+</div>
+
+{{!-- Form allows for updating inspectors. --}}
+<div class="continer-fluid pt-3 pb-5">
+    <h5>Update Inspector</h5>
+    <p>
+        To update information for a current inspector, please enter a valid 
+        Inspector ID number and fill out all input fields below. Information 
+        that is not being changed must still be entered in the update form. 
+    </p>
+    <form>
+
+        {{!-- Form input for inspector ID that will be updated --}}
+        <div class="row mb-3">
+            <label for="inputInspectorIDUpdate" class="col-sm-2 col-form-label">Inspector ID:</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="inputInspectorIDUpdate">
+            </div>
+        </div>
+
+        {{!-- Form input for inspector name update --}}
+        <div class="row mb-3">
+            <label for="inputInspectorNameUpdate" class="col-sm-2 col-form-label">Updated Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputInspectorNameUpdate">
+            </div>
+        </div>
+
+        {{!-- Form input for inspector office number update --}}
+        <div class="row mb-3">
+            <label for="inputInspectorOfficeUpdate" class="col-sm-2 col-form-label">Updated Office Number:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputInspectorOfficeUpdate">
+            </div>
+        </div>
+
+        {{!-- Form input for inspector phone number update --}}
+        <div class="row mb-3">
+            <label for="inputInspectorPhoneUpdate" class="col-sm-2 col-form-label">Updated Phone Number:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputInspectorPhoneUpdate">
+            </div>
+        </div>
+
+        {{!-- Form input for inspector email address update --}}
+        <div class="row mb-3">
+            <label for="inputInspectorEmailUpdate" class="col-sm-2 col-form-label">Updated Email Address:</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputInspectorEmailUpdate">
+            </div>
+        </div>
+
+        {{!-- Update form submit --}}
+        <button type="submit" class="btn btn-dark">Update</button>
+    </form>
+</div>
+
+
+{{!-- Form allows for deleting inspectors. --}}
+<div class="continer-fluid pt-3 pb-5">
+    <h5>Delete Inspector</h5>
+    <p>
+        To delete all batabase information for an Inspector, enter their 
+        Inspector ID below. Once deleted, this information is removed and 
+        cannot be recovered. <strong>Delete carefully.</strong> 
+    </p>
+    <form>
+
+        {{!-- Form input for inspector ID that will be deleted --}}
+        <div class="row mb-3">
+            <label for="inputInspectorIDDelete" class="col-sm-2 col-form-label">Inspector ID for Deletion:</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="inputInspectorIDDelete">
+            </div>
+        </div>
+
+        {{!-- Delete form submit --}}
+        <button type="submit" class="btn btn-dark">Delete</button>
     </form>
 </div>
