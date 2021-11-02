@@ -37,11 +37,12 @@
 {{!-- Form allows for inserting new maintenance records. --}}
 <div class="container-md p-3 my-3 mx-auto border border-secondary">
     <h5>Add Maintenance Record</h5>
+    <p>* = required field</p>
     <form>
 
         {{!-- Form input for BMP ID --}}
         <div class="row mb-3">
-            <label for="inputMaintenanceBMPID" class="col-sm-2 col-form-label">BMP ID:</label>
+            <label for="inputMaintenanceBMPID" class="col-sm-2 col-form-label">BMP ID *</label>
             <div class="col-sm-10">
                 <input type="number" class="form-control" id="inputMaintenanceBMPID">
             </div>
@@ -49,7 +50,7 @@
 
         {{!-- Form input for maintenance date --}}
         <div class="row mb-3">
-            <label for="inputMaintenanceDate" class="col-sm-2 col-form-label">Maintenance Date:</label>
+            <label for="inputMaintenanceDate" class="col-sm-2 col-form-label">Maintenance Date *</label>
             <div class="col-sm-10">
                 <input type="date" class="form-control" id="inputMaintenanceDate">
             </div>
@@ -57,7 +58,7 @@
 
         {{!-- Form input for party performing maintenance --}}
         <div class="row mb-3">
-            <label for="inputMaintenancePerformedBy" class="col-sm-2 col-form-label">Performed By:</label>
+            <label for="inputMaintenancePerformedBy" class="col-sm-2 col-form-label">Performed By *</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="inputMaintenancePerformedBy">
             </div>
@@ -65,7 +66,7 @@
 
         {{!-- Form input for description of maintenance --}}
         <div class="row mb-3">
-            <label for="inputMaintenanceDescription" class="col-sm-2 col-form-label">Description of Maintenance:</label>
+            <label for="inputMaintenanceDescription" class="col-sm-2 col-form-label">Description of Maintenance *</label>
             <div class="col-sm-10">
                 <textarea class="form-control" id="inputMaintenanceDescription"></textarea>
             </div>

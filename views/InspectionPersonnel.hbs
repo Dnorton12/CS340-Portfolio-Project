@@ -23,19 +23,86 @@
 
 <div class="container-md p-3 my-3 mx-auto border border-secondary">
     <h5>Add New BMP Inspection and Personnel</h5>
+    <p>* = required field</p>
     <form>
         <div class="row mb-3">
-            <label for="inputInspector" class="col-sm-2 col-form-label">BMP Inspection ID:</label>
+            <label for="inputInspector" class="col-sm-2 col-form-label">BMP Inspection ID *</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="inputBMPInspectionID">
             </div>
         </div>
         <div class="row mb-3">
-            <label for="inputInspector" class="col-sm-2 col-form-label">Inspector ID:</label>
+            <label for="inputInspector" class="col-sm-2 col-form-label">Inspector ID *</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="inputInspectorID">
             </div>
         </div>
         <button type="button" class="btn btn-dark">Submit</button>
+    </form>
+</div>
+
+{{!-- Form allows for updating inspection and inspector relationships. --}}
+<div class="container-md p-3 my-3 mx-auto border border-secondary">
+    <h5>Update Existing BMP Inspections and Personnel</h5>
+    <p>* = required field</p>
+    <p>
+        To update the relationship between an existing inspection and inspector, 
+        please enter the BMP Inspection ID. The associated Inspector ID can then 
+        be changed as needed. 
+    </p>
+    <form>
+
+        {{!-- Form input for BMP inspection ID that will be updated --}}
+        <div class="row mb-3">
+            <label for="inputInspectionPersonnelBMPInspectionUpdate" class="col-sm-2 col-form-label">BMP Inspection ID *</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="inputInspectionPersonnelBMPInspectionUpdate">
+            </div>
+        </div>
+
+        {{!-- Form input for inspector ID that will be updated --}}
+        <div class="row mb-3">
+            <label for="inputInspectionPersonnelInspectorUpdate" class="col-sm-2 col-form-label">Updated Inspector ID</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputInspectionPersonnelInspectorUpdate">
+            </div>
+        </div>
+
+        {{!-- Update form submit --}}
+        <button type="submit" class="btn btn-dark">Update</button>
+    </form>
+</div>
+
+
+{{!-- Form allows for deleting inspection and personnel relationships. --}}
+<div class="container-md p-3 my-3 mx-auto border border-secondary">
+    <h5>Delete BMP Inspection and Personnel</h5>
+    <p>* = required field</p>
+    <p>
+        To delete all batabase information for a relationship between a specific 
+        BMP Inspection and Inspector, enter the required IDs below. Once deleted, 
+        this information is removed and cannot be recovered. 
+        <strong>Delete carefully.</strong>
+    </p>
+    <form>
+
+        {{!-- Form input for BMP inspection ID that will be deleted --}}
+        <div class="row mb-3">
+            <label for="inputInspectionPersonnelBMPInspectionDelete" class="col-sm-2 col-form-label">BMP Inspection ID for Deletion *</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="inputInspectionPersonnelBMPInspectionDelete">
+            </div>
+        </div>
+
+        {{!-- Form input for inspector ID that will be deleted --}}
+        <div class="row mb-3">
+            <label for="inputInspectionPersonnelInspectorDelete" class="col-sm-2 col-form-label">Inspector ID for Deletion *</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="inputInspectionPersonnelInspectorDelete">
+            </div>
+        </div>
+
+        {{!-- Delete form submit --}}
+        <button type="submit" class="btn btn-dark">Delete</button>
     </form>
 </div>
