@@ -1,39 +1,41 @@
+<div class="p-3">
 <h1>Inspectors</h1>
 
-<table class="table table-secondary table-hover table-striped">
-    <thead>
+    <table class="table table-secondary table-hover table-striped table-bordered mt-3">
+        <thead>
 
-        {{!-- Inspector data fields (columns/attributes) --}}
-        <tr>
-            <th>Inspector ID</th>
-            <th>Name</th>
-            <th>Office</th>
-            <th>Phone</th>
-            <th>Email</th>
-        </tr>
-    </thead>
-    <tbody>
+            {{!-- Inspector data fields (columns/attributes) --}}
+            <tr>
+                <th>Inspector ID</th>
+                <th>Name</th>
+                <th>Office</th>
+                <th>Phone</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
 
-        {{!-- Placeholder for inspector data from the DB --}}
-        <tr>
-            <td>1</td>
-            <td>Josh Johnson</td>
-            <td>110a</td>
-            <td>555-555-1001</td>
-            <td>jjohnson@local.gov</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Tony Smith</td>
-            <td>206</td>
-            <td>555-555-1073</td>
-            <td>tsmith@local.gov</td>
-        </tr>
-    </tbody>
-</table>
+            {{!-- Placeholder for inspector data from the DB --}}
+            <tr>
+                <td>1</td>
+                <td>Josh Johnson</td>
+                <td>110a</td>
+                <td>555-555-1001</td>
+                <td>jjohnson@local.gov</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Tony Smith</td>
+                <td>206</td>
+                <td>555-555-1073</td>
+                <td>tsmith@local.gov</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 {{!-- Form allows for inserting new inspectors. --}}
-<div class="continer-fluid pt-3 pb-5">
+<div class="container-md p-3 my-3 mx-auto border border-secondary">
     <h5>Add Inspector</h5>
     <form>
 
@@ -75,12 +77,12 @@
 </div>
 
 {{!-- Form allows for updating inspectors. --}}
-<div class="continer-fluid pt-3 pb-5">
+<div class="container-md p-3 my-3 mx-auto border border-secondary">
     <h5>Update Inspector</h5>
     <p>
-        To update information for a current inspector, please enter a valid 
-        Inspector ID number and fill out all input fields below. Information 
-        that is not being changed must still be entered in the update form. 
+        To update information for a current inspector, please enter a valid
+        Inspector ID number and fill out all input fields below. Information
+        that is not being changed must still be entered in the update form.
     </p>
     <form>
 
@@ -131,12 +133,12 @@
 
 
 {{!-- Form allows for deleting inspectors. --}}
-<div class="continer-fluid pt-3 pb-5">
+<div class="container-md p-3 my-3 mx-auto border border-secondary">
     <h5>Delete Inspector</h5>
     <p>
-        To delete all batabase information for an Inspector, enter their 
-        Inspector ID below. Once deleted, this information is removed and 
-        cannot be recovered. <strong>Delete carefully.</strong> 
+        To delete all batabase information for an Inspector, enter their
+        Inspector ID below. Once deleted, this information is removed and
+        cannot be recovered. <strong>Delete carefully.</strong>
     </p>
     <form>
 
