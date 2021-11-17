@@ -31,10 +31,22 @@ app.get('/', function(req, res)
         res.render('index');                    // Note the call to render() and not send(). Using render() ensures the templating engine
     });                                         // will process this file, before sending the finished HTML to the client.
 
+
+// Route handler for Facilities page
 app.get('/Facilities', function(req, res)
     {
-        res.render('Facilities');               // Note the call to render() and not send(). Using render() ensures the templating engine
-    });                                         // will process this file, before sending the finished HTML to the client.
+        // Query for retrieving Facilities data that will be displayed in a table
+        let tableQuery = "SELECT bmpID, stAddress, city, state, zipCode, name, facilityTypeID FROM BMPFacilities";
+        // Execute query on the database
+        db.pool.query(tableQuery, function(error, rows, fields){
+            // Render page with returned data after query completes
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            res.render('Facilities', {facilities: rows});
+        })
+    });
 
 app.get('/FacilityTypes', function(req, res)
     {

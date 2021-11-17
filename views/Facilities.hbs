@@ -14,24 +14,17 @@
             </tr>
         </thead>
         <tbody>
+            {{#each facilities}}
             <tr>
-                <td>1</td>
-                <td>1510 Main St</td>
-                <td>Chicago</td>
-                <td>Illinois</td>
-                <td>60696</td>
-                <td>Main Street West</td>
-                <td>3</td>
+                <td>{{this.bmpID}}</td>
+                <td>{{this.stAddress}}</td>
+                <td>{{this.city}}</td>
+                <td>{{this.state}}</td>
+                <td>{{this.zipCode}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.facilityTypeID}}</td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>301 Johnson Ave</td>
-                <td>Madison</td>
-                <td>Wisconsin</td>
-                <td>54603</td>
-                <td>Meadow Valley South</td>
-                <td>2</td>
-            </tr>
+            {{/each}}
         </tbody>
     </table>
 </div>
