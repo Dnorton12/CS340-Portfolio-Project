@@ -9,14 +9,12 @@
             </tr>
         </thead>
         <tbody>
+            {{#each relationships}}
             <tr>
-                <td>1</td>
-                <td>3</td>
+                <td>{{this.bmpInspectionID}}</td>
+                <td>{{this.inspectorID}}</td>
             </tr>
-            <tr>
-                <td>3</td>
-                <td>2</td>
-            </tr>
+            {{/each}}
         </tbody>
     </table>
 </div>

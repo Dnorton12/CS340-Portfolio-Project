@@ -22,40 +22,23 @@
             </tr>
         </thead>
         <tbody>
-
-            {{!-- Placeholder for inspection data from the DB --}}
+            {{#each inspections}}
             <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>9/1/2021</td>
-                <td>Tony Smith</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>3</td>
-                <td>Yes</td>
-                <td>The condition of this facility is in excellent condition. No maintenance is required at this time.
-                </td>
+                <td>{{this.bmpInspectionID}}</td>
+                <td>{{this.bmpID}}</td>
+                <td>{{this.inspectionDate}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.inspectEmbankment}}</td>
+                <td>{{this.inspectErosion}}</td>
+                <td>{{this.inspectSediment}}</td>
+                <td>{{this.inspectPonding}}</td>
+                <td>{{this.inspectVegetation}}</td>
+                <td>{{this.inspectControlStructure}}</td>
+                <td>{{this.inspectTrash}}</td>
+                <td>{{this.overallFunction}}</td>
+                <td>{{this.comments}}</td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>2</td>
-                <td>9/15/2021</td>
-                <td>Josh Johnson</td>
-                <td>3</td>
-                <td>2</td>
-                <td>3</td>
-                <td>2</td>
-                <td>3</td>
-                <td>2</td>
-                <td>3</td>
-                <td>Yes</td>
-                <td>The overall condition of this facility is average. Maintenance is going to be required by end of
-                    October.</td>
-            </tr>
+            {{/each}}
         </tbody>
     </table>
 </div>

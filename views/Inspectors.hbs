@@ -14,22 +14,15 @@
             </tr>
         </thead>
         <tbody>
-
-            {{!-- Placeholder for inspector data from the DB --}}
+            {{#each inspectors}}
             <tr>
-                <td>1</td>
-                <td>Josh Johnson</td>
-                <td>110a</td>
-                <td>555-555-1001</td>
-                <td>jjohnson@local.gov</td>
+                <td>{{this.inspectorID}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.office}}</td>
+                <td>{{this.phone}}</td>
+                <td>{{this.email}}</td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Tony Smith</td>
-                <td>206</td>
-                <td>555-555-1073</td>
-                <td>tsmith@local.gov</td>
-            </tr>
+            {{/each}}
         </tbody>
     </table>
 </div>

@@ -14,22 +14,15 @@
             </tr>
         </thead>
         <tbody>
-
-            {{!-- Placeholder for maintennce record data from the DB --}}
+            {{#each records}}
             <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>7/10/2021</td>
-                <td>SWM, Inc.</td>
-                <td>Removed excessive vegetation growing within sand filter.</td>
+                <td>{{this.maintenanceID}}</td>
+                <td>{{this.bmpID}}</td>
+                <td>{{this.maintenanceDate}}</td>
+                <td>{{this.performedBy}}</td>
+                <td>{{this.description}}</td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>1</td>
-                <td>7/25/2021</td>
-                <td>SWM, Inc.</td>
-                <td>Repaired erosion on embankment, stabilized and reseeded embankment with grass seed.</td>
-            </tr>
+            {{/each}}
         </tbody>
     </table>
 </div>

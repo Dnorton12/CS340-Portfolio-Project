@@ -32,7 +32,7 @@ app.get('/', function(req, res)
     });                                         // will process this file, before sending the finished HTML to the client.
 
 
-// Route handler for Facilities page
+// Route handler for BMP Facilities page
 app.get('/Facilities', function(req, res)
     {
         // Query for retrieving Facilities data that will be displayed in a table
@@ -48,31 +48,93 @@ app.get('/Facilities', function(req, res)
         })
     });
 
+
+// Route handler for Facility Types page
 app.get('/FacilityTypes', function(req, res)
     {
-        res.render('FacilityTypes');            // Note the call to render() and not send(). Using render() ensures the templating engine
-    });                                         // will process this file, before sending the finished HTML to the client.
+        let tableQuery = "SELECT facilityTypeID, facilityTypeName, facilityTypeDescription FROM FacilityTypes";
+        db.pool.query(tableQuery, function(error, rows, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            res.render('FacilityTypes', {types: rows});
+        })
+    });
 
+
+// Route handler for Inspection Personnel page
 app.get('/InspectionPersonnel', function(req, res)
     {
-        res.render('InspectionPersonnel');      // Note the call to render() and not send(). Using render() ensures the templating engine
-    });                                         // will process this file, before sending the finished HTML to the client.
+        let tableQuery = "SELECT bmpInspectionID, inspectorID FROM InspectionPersonnel";
+        db.pool.query(tableQuery, function(error, rows, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            res.render('InspectionPersonnel', {relationships: rows});
+        })
+    });
 
+
+// Route handler for Inspections page
 app.get('/Inspections', function(req, res)
     {
-        res.render('Inspections');              // Note the call to render() and not send(). Using render() ensures the templating engine
-    });                                         // will process this file, before sending the finished HTML to the client.
+        let tableQuery = "SELECT BMPInspections.bmpInspectionID, BMPInspections.bmpID, BMPInspections.inspectionDate, Inspectors.name, BMPInspections.inspectEmbankment, BMPInspections.inspectErosion, BMPInspections.inspectSediment, BMPInspections.inspectPonding, BMPInspections.inspectVegetation, BMPInspections.inspectControlStructure, BMPInspections.inspectTrash, BMPInspections.overallFunction, BMPInspections.comments FROM BMPInspections JOIN InspectionPersonnel ON BMPInspections.bmpInspectionID = InspectionPersonnel.bmpInspectionID LEFT JOIN Inspectors ON InspectionPersonnel.inspectorID = Inspectors.inspectorID ORDER BY BMPInspections.bmpInspectionID";
+        db.pool.query(tableQuery, function(error, rows, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            res.render('Inspections', {inspections: rows});
+        })
+    });
 
+
+// Route handler for Inspectors page
 app.get('/Inspectors', function(req, res)
     {
-        res.render('Inspectors');               // Note the call to render() and not send(). Using render() ensures the templating engine
-    });                                         // will process this file, before sending the finished HTML to the client.
+        let tableQuery = "SELECT inspectorID, name, office, phone, email FROM Inspectors";
+        db.pool.query(tableQuery, function(error, rows, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            res.render('Inspectors', {inspectors: rows});
+        })
+    });
 
+
+// Route handler for Maintenance Records page
 app.get('/MaintenanceRecords', function(req, res)
     {
-        res.render('MaintenanceRecords');       // Note the call to render() and not send(). Using render() ensures the templating engine
-    });                                         // will process this file, before sending the finished HTML to the client.
+        let tableQuery = "SELECT maintenanceID, bmpID, maintenanceDate, performedBy, description FROM MaintenanceRecords";
+        db.pool.query(tableQuery, function(error, rows, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            res.render('MaintenanceRecords', {records: rows});
+        })
+    });
 
+
+// Route handler for resource not found
+app.use(function(req,res)
+    {
+        res.status(404);
+        res.render('404');
+    });
+
+
+// Route handler for internal server error
+app.use(function(err, req, res, next)
+    {
+        console.error(err.stack);
+        res.status(500);
+        res.render('500');
+    });
+  
 
 /*
     LISTENER
