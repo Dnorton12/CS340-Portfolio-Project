@@ -48,7 +48,6 @@ app.get('/Facilities', function(req, res)
         })
     });
 
-<<<<<<< HEAD
 app.post('/Facilities', function(req, res) 
     {
         let insertQuery = "INSERT INTO BMPFacilities (stAddress, city, state, zipCode, name, facilityTypeID) VALUES (?,?,?,?,?,?)"
@@ -63,8 +62,6 @@ app.post('/Facilities', function(req, res)
         }) 
     })
 
-=======
->>>>>>> ddea12564ed22ceeae70315fd316b6eb56afd2a8
 
 // Route handler for Facility Types page
 app.get('/FacilityTypes', function(req, res)
@@ -78,7 +75,6 @@ app.get('/FacilityTypes', function(req, res)
             res.render('FacilityTypes', {types: rows});
         })
     });
-<<<<<<< HEAD
     
 app.post('/FacilityTypes', function(req, res) 
     {
@@ -94,8 +90,6 @@ app.post('/FacilityTypes', function(req, res)
         }) 
     })
 
-=======
->>>>>>> ddea12564ed22ceeae70315fd316b6eb56afd2a8
 
 
 // Route handler for Inspection Personnel page
@@ -111,7 +105,6 @@ app.get('/InspectionPersonnel', function(req, res)
         })
     });
 
-<<<<<<< HEAD
 app.post('/InspectionPersonnel', function(req, res)
     {
         let tableQuery = "INSERT INTO InspectionPersonnel (bmpInspectionID, inspectorID) VALUES (?, ?)";
@@ -126,8 +119,6 @@ app.post('/InspectionPersonnel', function(req, res)
             }
         })
     })
-=======
->>>>>>> ddea12564ed22ceeae70315fd316b6eb56afd2a8
 
 // Route handler for Inspections page
 app.get('/Inspections', function(req, res)
@@ -142,7 +133,6 @@ app.get('/Inspections', function(req, res)
         })
     });
 
-<<<<<<< HEAD
 app.post('/Inspections', function(req, res)
     {
         let insertQuery1 = "INSERT INTO BMPInspections (bmpID, inspectionDate, inspectEmbankment, inspectErosion, inspectSediment, inspectPonding, inspectVegetation, inspectControlStructure, inspectTrash, overallFunction, comments) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -167,8 +157,6 @@ app.post('/Inspections', function(req, res)
             }
         });
     });
-=======
->>>>>>> ddea12564ed22ceeae70315fd316b6eb56afd2a8
 
 // Route handler for Inspectors page
 app.get('/Inspectors', function(req, res)
@@ -183,7 +171,6 @@ app.get('/Inspectors', function(req, res)
         })
     });
 
-<<<<<<< HEAD
 app.post('/Inspectors', function(req, res) 
     {
         let insertQuery = "INSERT INTO Inspectors (name, office, phone, email) VALUES (?,?,?,?)"
@@ -199,8 +186,6 @@ app.post('/Inspectors', function(req, res)
     })
 
 
-=======
->>>>>>> ddea12564ed22ceeae70315fd316b6eb56afd2a8
 
 // Route handler for Maintenance Records page
 app.get('/MaintenanceRecords', function(req, res)
@@ -215,7 +200,6 @@ app.get('/MaintenanceRecords', function(req, res)
         })
     });
 
-<<<<<<< HEAD
 app.post('/MaintenanceRecords', function(req, res) 
     {
         let insertQuery = "INSERT INTO MaintenanceRecords (bmpID, maintenanceDate, performedBy, description) VALUES (?,?,?,?)"
@@ -230,8 +214,6 @@ app.post('/MaintenanceRecords', function(req, res)
         }) 
     })
 
-=======
->>>>>>> ddea12564ed22ceeae70315fd316b6eb56afd2a8
 
 // Route handler for resource not found
 app.use(function(req,res)
@@ -239,10 +221,6 @@ app.use(function(req,res)
         res.status(404);
         res.render('404');
     });
-<<<<<<< HEAD
-=======
-
->>>>>>> ddea12564ed22ceeae70315fd316b6eb56afd2a8
 
 // Route handler for internal server error
 app.use(function(err, req, res, next)
