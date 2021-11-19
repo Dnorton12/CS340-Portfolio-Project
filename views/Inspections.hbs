@@ -1,95 +1,83 @@
+<div class="p-3">
 <h1>BMP Inspections</h1>
 
-<table class="table table-secondary table-hover table-striped">
-    <thead>
+    <table class="table table-secondary table-hover table-striped table-bordered mt-3">
+        <thead>
 
-        {{!-- Inspection data fields (columns/attributes) --}}
-        <tr class="align-top">
-            <th>Inspection ID</th>
-            <th>BMP ID</th>
-            <th>Date</th>
-            <th>Inspector</th>
-            <th>Embankment</th>
-            <th>Erosion</th>
-            <th>Sediment</th>
-            <th>Ponding</th>
-            <th>Vegetation</th>
-            <th>Control Structure</th>
-            <th>Trash</th>
-            <th>Overall Function</th>
-            <th>Comments</th>
-        </tr>
-    </thead>
-    <tbody>
-
-        {{!-- Placeholder for inspection data from the DB --}}
-        <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>9/1/2021</td>
-            <td>Tony Smith</td>
-            <td>3</td>
-            <td>3</td>
-            <td>3</td>
-            <td>3</td>
-            <td>3</td>
-            <td>3</td>
-            <td>3</td>
-            <td>Yes</td>
-            <td>The condition of this facility is in excellent condition. No maintenance is required at this time.</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>2</td>
-            <td>9/15/2021</td>
-            <td>Josh Johnson</td>
-            <td>3</td>
-            <td>2</td>
-            <td>3</td>
-            <td>2</td>
-            <td>3</td>
-            <td>2</td>
-            <td>3</td>
-            <td>Yes</td>
-            <td>The overall condition of this facility is average. Maintenance is going to be required by end of October.</td>
-        </tr>
-    </tbody>
-</table>
+            {{!-- Inspection data fields (columns/attributes) --}}
+            <tr class="align-top">
+                <th>Inspection ID</th>
+                <th>BMP ID</th>
+                <th>Date</th>
+                <th>Inspector</th>
+                <th>Embankment</th>
+                <th>Erosion</th>
+                <th>Sediment</th>
+                <th>Ponding</th>
+                <th>Vegetation</th>
+                <th>Control Structure</th>
+                <th>Trash</th>
+                <th>Overall Function</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each inspections}}
+            <tr>
+                <td>{{this.bmpInspectionID}}</td>
+                <td>{{this.bmpID}}</td>
+                <td>{{this.inspectionDate}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.inspectEmbankment}}</td>
+                <td>{{this.inspectErosion}}</td>
+                <td>{{this.inspectSediment}}</td>
+                <td>{{this.inspectPonding}}</td>
+                <td>{{this.inspectVegetation}}</td>
+                <td>{{this.inspectControlStructure}}</td>
+                <td>{{this.inspectTrash}}</td>
+                <td>{{this.overallFunction}}</td>
+                <td>{{this.comments}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
 
 {{!-- Form allows for inserting new BMP inspections. --}}
-<div class="continer-fluid pt-3 pb-5">
+<div class="container-md p-3 my-3 mx-auto border border-secondary">
     <h5>Add BMP Inspection</h5>
-    <form>
+    <p>* = required field</p>
+    <form id="insertInspections" action="/Inspections" method="post">
 
         {{!-- Form input for BMP facility ID --}}
         <div class="row mb-3">
-            <label for="inputBMPID" class="col-sm-2 col-form-label">BMP Facility ID:</label>
+            <label for="inputBMPID" class="col-sm-2 col-form-label">BMP Facility ID *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputBMPID">
+                <input type="number" class="form-control" id="inputBMPID" name="bmpID">
             </div>
         </div>
 
         {{!-- Form input for inspection date --}}
         <div class="row mb-3">
-            <label for="inputInspectionDate" class="col-sm-2 col-form-label">Inspection Date:</label>
+            <label for="inputInspectionDate" class="col-sm-2 col-form-label">Inspection Date *</label>
             <div class="col-sm-10">
-                <input type="date" class="form-control" id="inputInspectionDate">
+                <input type="date" class="form-control" id="inputInspectionDate" name="inspectionDate">
             </div>
         </div>
 
         {{!-- Form input for inspector ID --}}
         <div class="row mb-3">
-            <label for="inputInspector" class="col-sm-2 col-form-label">Inspector ID:</label>
+            <label for="inputInspector" class="col-sm-2 col-form-label">Inspector ID</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputInspector">
+                <input type="number" class="form-control" id="inputInspector" name="inspectorID">
             </div>
         </div>
 
         {{!-- Form input for embankment rating --}}
         <div class="row mb-3">
-            <label for="inlineFormSelectEmbankment" class="col-sm-2 col-form-label">Embankment Rating:</label>
+            <label for="inlineFormSelectEmbankment" class="col-sm-2 col-form-label">Embankment Rating *</label>
             <div class="col-sm-10">
-                <select class="form-select" id="inlineFormSelectEmbankment">
+                <select class="form-select" id="inlineFormSelectEmbankment" name="inspectEmbankment">
                     <option selected>Choose...</option>
                     <option value="0">0 - Not present at this facility</option>
                     <option value="1">1 - Major repairs or maintenance are required</option>
@@ -101,9 +89,9 @@
 
         {{!-- Form input for erosion rating --}}
         <div class="row mb-3">
-            <label for="inlineFormSelectErosion" class="col-sm-2 col-form-label">Erosion Rating:</label>
+            <label for="inlineFormSelectErosion" class="col-sm-2 col-form-label">Erosion Rating *</label>
             <div class="col-sm-10">
-                <select class="form-select" id="inlineFormSelectErosion">
+                <select class="form-select" id="inlineFormSelectErosion" name="inspectErosion">
                     <option selected>Choose...</option>
                     <option value="0">0 - Not present at this facility</option>
                     <option value="1">1 - Major repairs or maintenance are required</option>
@@ -115,9 +103,9 @@
 
         {{!-- Form input for sediment rating --}}
         <div class="row mb-3">
-            <label for="inlineFormSelectSediment" class="col-sm-2 col-form-label">Sediment Rating:</label>
+            <label for="inlineFormSelectSediment" class="col-sm-2 col-form-label">Sediment Rating *</label>
             <div class="col-sm-10">
-                <select class="form-select" id="inlineFormSelectSediment">
+                <select class="form-select" id="inlineFormSelectSediment" name="inspectSediment">
                     <option selected>Choose...</option>
                     <option value="0">0 - Not present at this facility</option>
                     <option value="1">1 - Major repairs or maintenance are required</option>
@@ -129,9 +117,9 @@
 
         {{!-- Form input for ponding rating --}}
         <div class="row mb-3">
-            <label for="inlineFormSelectPonding" class="col-sm-2 col-form-label">Ponding Rating:</label>
+            <label for="inlineFormSelectPonding" class="col-sm-2 col-form-label">Ponding Rating *</label>
             <div class="col-sm-10">
-                <select class="form-select" id="inlineFormSelectPonding">
+                <select class="form-select" id="inlineFormSelectPonding" name="inspectPonding">
                     <option selected>Choose...</option>
                     <option value="0">0 - Not present at this facility</option>
                     <option value="1">1 - Major repairs or maintenance are required</option>
@@ -143,9 +131,9 @@
 
         {{!-- Form input for vegetation rating --}}
         <div class="row mb-3">
-            <label for="inlineFormSelectVegetation" class="col-sm-2 col-form-label">Vegetation Rating:</label>
+            <label for="inlineFormSelectVegetation" class="col-sm-2 col-form-label">Vegetation Rating *</label>
             <div class="col-sm-10">
-                <select class="form-select" id="inlineFormSelectVegetation">
+                <select class="form-select" id="inlineFormSelectVegetation" name="inspectVegetation">
                     <option selected>Choose...</option>
                     <option value="0">0 - Not present at this facility</option>
                     <option value="1">1 - Major repairs or maintenance are required</option>
@@ -158,9 +146,9 @@
         {{!-- Form input for control structure rating --}}
         <div class="row mb-3">
             <label for="inlineFormSelectControlStructure" class="col-sm-2 col-form-label">Control Structure
-                Rating:</label>
+                Rating *</label>
             <div class="col-sm-10">
-                <select class="form-select" id="inlineFormSelectControlStructure">
+                <select class="form-select" id="inlineFormSelectControlStructure" name="inspectControlStructure">
                     <option selected>Choose...</option>
                     <option value="0">0 - Not present at this facility</option>
                     <option value="1">1 - Major repairs or maintenance are required</option>
@@ -172,9 +160,9 @@
 
         {{!-- Form input for trash rating --}}
         <div class="row mb-3">
-            <label for="inlineFormSelectTrash" class="col-sm-2 col-form-label">Trash Rating:</label>
+            <label for="inlineFormSelectTrash" class="col-sm-2 col-form-label">Trash Rating *</label>
             <div class="col-sm-10">
-                <select class="form-select" id="inlineFormSelectTrash">
+                <select class="form-select" id="inlineFormSelectTrash" name="inspectTrash">
                     <option selected>Choose...</option>
                     <option value="0">0 - Not present at this facility</option>
                     <option value="1">1 - Major repairs or maintenance are required</option>
@@ -186,17 +174,18 @@
 
         {{!-- Form input for overall function --}}
         <fieldset class="row mb-3">
-            <legend class="col-form-label col-sm-2 pt-0">Overall Function:</legend>
+            <legend class="col-form-label col-sm-2 pt-0">Overall Function *</legend>
             <div class="col-sm-10">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radioOverallFunction" id="overallFunctionYes" value="1"
-                        checked>
+                    <input class="form-check-input" type="radio" name="overallFunction" id="overallFunctionYes"
+                        value="1" checked>
                     <label class="form-check-label" for="overallFunctionYes">
                         Yes, the facility is functioning as intended.
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="radioOverallFunction" id="overallFunctionNo" value="0">
+                    <input class="form-check-input" type="radio" name="overallFunction" id="overallFunctionNo"
+                        value="0">
                     <label class="form-check-label" for="overallFunctionNo">
                         No, the facility is not functioning and requires corrective action.
                     </label>
@@ -206,9 +195,9 @@
 
         {{!-- Form input for comments --}}
         <div class="row mb-3">
-            <label for="textareaComments" class="col-sm-2 col-form-label">Comments:</label>
+            <label for="textareaComments" class="col-sm-2 col-form-label">Comments</label>
             <div class="col-sm-10">
-                <textarea class="form-control" id="textareaComments"></textarea>
+                <textarea class="form-control" id="textareaComments" name="comments"></textarea>
             </div>
         </div>
 

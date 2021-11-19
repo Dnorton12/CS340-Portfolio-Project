@@ -1,94 +1,94 @@
+<div class="p-3">
 <h1>BMP Facilities</h1>
-<table class="table table-secondary table-hover table-striped">
-    <thead>
-        <tr>
-            <th scope="col">BMP ID</th>
-            <th scope="col">Street Address</th>
-            <th scope="col">City</th>
-            <th scope="col">State</th>
-            <th scope="col">Zip Code</th>
-            <th scope="col">Name</th>
-            <th scope="col">Faciltiy Type ID</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>1510 Main St</td>
-            <td>Chicago</td>
-            <td>Illinois</td>
-            <td>60696</td>
-            <td>Main Street West</td>
-            <td>3</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>301 Johnson Ave</td>
-            <td>Madison</td>
-            <td>Wisconsin</td>
-            <td>54603</td>
-            <td>Meadow Valley South</td>
-            <td>2</td>
-        </tr>
-    </tbody>
-</table>
 
-<div class="container-fluid pt-3 pb-5">
+    <table class="table table-secondary table-hover table-striped table-bordered mt-3">
+        <thead>
+            <tr>
+                <th scope="col">BMP ID</th>
+                <th scope="col">Street Address</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Zip Code</th>
+                <th scope="col">Name</th>
+                <th scope="col">Facility Type ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each facilities}}
+            <tr>
+                <td>{{this.bmpID}}</td>
+                <td>{{this.stAddress}}</td>
+                <td>{{this.city}}</td>
+                <td>{{this.state}}</td>
+                <td>{{this.zipCode}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.facilityTypeID}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<div class="container-md p-3 my-3 mx-auto border border-secondary">
     <h5>Add New BMP Facility</h5>
-    <form>
+    <p>* = required field</p>
+    <form action="" method="post">
         <div class="row mb-3">
-            <label for="inputInspector" class="col-sm-2 col-form-label">Street Address:</label>
+            <label for="inputInspector" class="col-sm-2 col-form-label">Street Address *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputStreetAddress">
+                <input type="text" class="form-control" id="inputStreetAddress" name="stAddress">
             </div>
         </div>
         <div class="row mb-3">
-            <label for="inputInspector" class="col-sm-2 col-form-label">City:</label>
+            <label for="inputInspector" class="col-sm-2 col-form-label">City *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputCity">
+                <input type="text" class="form-control" id="inputCity" name="city">
             </div>
         </div>
         <div class="row mb-3">
-            <label for="inputInspector" class="col-sm-2 col-form-label">State:</label>
+            <label for="inputInspector" class="col-sm-2 col-form-label">State *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputState">
+                <input type="text" class="form-control" id="inputState" name="state">
             </div>
         </div>
         <div class="row mb-3">
-            <label for="inputInspector" class="col-sm-2 col-form-label">Zip Code:</label>
+            <label for="inputInspector" class="col-sm-2 col-form-label">Zip Code *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputZipCode">
+                <input type="text" class="form-control" id="inputZipCode" name="zipCode">
             </div>
         </div>
         <div class="row mb-3">
-            <label for="inputInspector" class="col-sm-2 col-form-label">Facility Name:</label>
+            <label for="inputInspector" class="col-sm-2 col-form-label">Facility Name *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputFacilityName">
+                <input type="text" class="form-control" id="inputFacilityName" name="facilityName">
             </div>
         </div>
         <div class="row mb-3">
-            <label for="inputInspector" class="col-sm-2 col-form-label">Facility Type ID:</label>
+            <label for="inputInspector" class="col-sm-2 col-form-label">Facility Type ID *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputFacilityTypeID">
+                <input type="text" class="form-control" id="inputFacilityTypeID" name="facilityTypeID">
             </div>
         </div>
-        <button type="button" class="btn btn-dark">Submit</button>
+        <button type="submit" id="submit" class="btn btn-dark">Submit</button>
     </form>
+</div>
 
-    <h5 style="padding-top: 15px;">Search for a facility</h5>
+<div class="container-md p-3 my-3 mx-auto border border-secondary">
+    <h5>Search for a Facility</h5>
+    <p>* = required field</p>
     <form>
         <div class="row mb-3">
-            <label for="inputInspector" class="col-sm-2 col-form-label">Facility Type ID:</label>
+            <label for="inputInspector" class="col-sm-2 col-form-label">Facility Type ID *</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="inputInspector">
             </div>
         </div>
         <div class="row mb-3">
-            <label for="inputInspector" class="col-sm-2 col-form-label">BMP ID:</label>
+            <label for="inputInspector" class="col-sm-2 col-form-label">BMP ID *</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="inputInspector">
             </div>
         </div>
-        <button type="button" class="btn btn-dark">Submit</button>
+        <button type="submit" id="submit" class="btn btn-dark">Submit</button>
     </form>
 </div>
