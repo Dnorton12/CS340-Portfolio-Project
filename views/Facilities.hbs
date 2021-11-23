@@ -76,17 +76,17 @@
 <div class="container-md p-3 my-3 mx-auto border border-secondary">
     <h5>Search for a Facility</h5>
     <p>* = required field</p>
-    <form>
+    <form action="/Facilities/search" method="get">
         <div class="row mb-3">
             <label for="inputInspector" class="col-sm-2 col-form-label">Facility Type ID *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputInspector">
+                <input type="text" class="form-control" id="inputInspector" name="searchFacilityID">
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputInspector" class="col-sm-2 col-form-label">BMP ID *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputInspector">
+                <input type="text" class="form-control" id="inputInspector" name="searchbmpID">
             </div>
         </div>
         <button type="submit" id="submit" class="btn btn-dark">Submit</button>

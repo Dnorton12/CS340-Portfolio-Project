@@ -7,7 +7,7 @@ var express = require('express');   // We are using the express library for the 
 var app     = express();            // We need to instantiate an express object to interact with the server in our code
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-PORT        = 8269;                 // Set a port number at the top so it's easy to change in the future
+PORT        = 8270;                 // Set a port number at the top so it's easy to change in the future
 var db = require('./database/db-connector')
 
 var exphbs = require('express-handlebars');     // Import express-handlebars
@@ -62,7 +62,6 @@ app.post('/Facilities', function(req, res)
         }) 
     })
 
-
 // Route handler for Facility Types page
 app.get('/FacilityTypes', function(req, res)
     {
@@ -105,11 +104,12 @@ app.get('/InspectionPersonnel', function(req, res)
         })
     });
 
-app.post('/InspectionPersonnel', function(req, res)
+
+app.post('/InspectionPersonnel/add', function(req, res)
     {
         let tableQuery = "INSERT INTO InspectionPersonnel (bmpInspectionID, inspectorID) VALUES (?, ?)";
-        let insertData = [req.body.add-bmpID, req.body.add-inspectorID];
-        db.pool.query(inserQuery, insertData, function(error, row, fields) {
+        let insertData = [req.body.addbmpID, req.body.addinspectorID];
+        db.pool.query(tableQuery, insertData, function(error, row, fields) {
             if(error) {
                 res.write(JSON.stringify(error));
                 res.end();
@@ -118,7 +118,37 @@ app.post('/InspectionPersonnel', function(req, res)
                 res.redirect('/InspectionPersonnel')
             }
         })
-    })
+    });
+
+app.post('/InspectionPersonnel/update', function(req, res) 
+    {
+        let updateQuery = "UPDATE InspectionPersonnel SET inspectorID = ? WHERE bmpInspectionID = ?";
+        let updateData = [req.body.updateinspectorID, req.body.updatebmpInspectionID];
+        db.pool.query(updateQuery, updateData, function(error, row, fields) {
+            if(error) {
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            else {
+                res.redirect('/InspectionPersonnel')
+            }
+        })
+    });
+
+app.post('/InspectionPersonnel/delete', function(req, res) 
+    {
+        let updateQuery = "DELETE FROM InspectionPersonnel WHERE bmpInspectionID = ? AND inspectorID = ?";
+        let updateData = [req.body.deletebmpID, req.body.deleteinspectorID];
+        db.pool.query(updateQuery, updateData, function(error, row, fields) {
+            if(error) {
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            else {
+                res.redirect('/InspectionPersonnel')
+            }
+        })
+    });
 
 // Route handler for Inspections page
 app.get('/Inspections', function(req, res)
@@ -171,7 +201,7 @@ app.get('/Inspectors', function(req, res)
         })
     });
 
-app.post('/Inspectors', function(req, res) 
+app.post('/Inspectors/add', function(req, res) 
     {
         let insertQuery = "INSERT INTO Inspectors (name, office, phone, email) VALUES (?,?,?,?)"
         let insertData = [req.body.inspectorName, req.body.officeNumber, req.body.phoneNumber, req.body.email]
@@ -185,6 +215,35 @@ app.post('/Inspectors', function(req, res)
         }) 
     })
 
+app.post('/Inspectors/update', function(req, res) 
+    {
+        let updateQuery = "UPDATE Inspectors SET name = ?, office = ?, phone = ?, email = ? WHERE inspectorID = ?";
+        let updateData = [req.body.updateName, req.body.updateOffice, req.body.updatePhone, req.body.updateEmail, req.body.updateinspectorID];
+        db.pool.query(updateQuery, updateData, function(error, row, fields) {
+            if(error) {
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            else {
+                res.redirect('/Inspectors')
+            }
+        })
+    });
+
+app.post('/Inspectors/delete', function(req, res) 
+    {
+        let updateQuery = "DELETE FROM Inspectors WHERE inspectorID = ?";
+        let updateData = [req.body.deleteinspectorID];
+        db.pool.query(updateQuery, updateData, function(error, row, fields) {
+            if(error) {
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            else {
+                res.redirect('/Inspectors')
+            }
+        })
+    });
 
 
 // Route handler for Maintenance Records page
