@@ -1,5 +1,3 @@
-// App.js
-
 /*
     SETUP
 */
@@ -22,14 +20,11 @@ app.set('view engine', '.hbs');                 // Tell express to use the handl
     ROUTES
 */
 
-// app.js
-
-// app.js
 
 app.get('/', function(req, res)
     {
-        res.render('index');                    // Note the call to render() and not send(). Using render() ensures the templating engine
-    });                                         // will process this file, before sending the finished HTML to the client.
+        res.render('index');
+    });
 
 
 // Route handler for BMP Facilities page
@@ -49,7 +44,7 @@ app.get('/Facilities', function(req, res)
     });
 
 
-// Route handler for Facility Types page
+// Route handler for displaying Facility Types page
 app.get('/FacilityTypes', function(req, res)
     {
         let tableQuery = "SELECT facilityTypeID, facilityTypeName, facilityTypeDescription FROM FacilityTypes";
@@ -59,11 +54,27 @@ app.get('/FacilityTypes', function(req, res)
                 res.end();
             }
             res.render('FacilityTypes', {types: rows});
-        })
+        });
+    });
+
+// Inserting new data for Facility Types
+app.post('/FacilityTypes', function(req, res)
+    {
+        let insertQuery = "INSERT INTO FacilityTypes (facilityTypeName, facilityTypeDescription) VALUES (?, ?)";
+        let insertData = [req.body.facilityTypeName, req.body.facilityTypeDescription];
+        db.pool.query(insertQuery, insertData, function(error, results, fields){
+            if(error){
+                console.log(JSON.stringify(error))
+                res.write(JSON.stringify(error));
+                res.end();
+            }else{
+                res.redirect('/FacilityTypes');
+            }
+        });
     });
 
 
-// Route handler for Inspection Personnel page
+// Route handler for displaying Inspection Personnel page
 app.get('/InspectionPersonnel', function(req, res)
     {
         let tableQuery = "SELECT bmpInspectionID, inspectorID FROM InspectionPersonnel";
@@ -77,7 +88,7 @@ app.get('/InspectionPersonnel', function(req, res)
     });
 
 
-// Route handler for Inspections page
+// Route handler for displaying Inspections page
 app.get('/Inspections', function(req, res)
     {
         let tableQuery = "SELECT BMPInspections.bmpInspectionID, BMPInspections.bmpID, BMPInspections.inspectionDate, Inspectors.name, BMPInspections.inspectEmbankment, BMPInspections.inspectErosion, BMPInspections.inspectSediment, BMPInspections.inspectPonding, BMPInspections.inspectVegetation, BMPInspections.inspectControlStructure, BMPInspections.inspectTrash, BMPInspections.overallFunction, BMPInspections.comments FROM BMPInspections JOIN InspectionPersonnel ON BMPInspections.bmpInspectionID = InspectionPersonnel.bmpInspectionID LEFT JOIN Inspectors ON InspectionPersonnel.inspectorID = Inspectors.inspectorID ORDER BY BMPInspections.bmpInspectionID";
@@ -90,8 +101,53 @@ app.get('/Inspections', function(req, res)
         })
     });
 
+// Inserting new data for Inspections
+app.post('/Inspections', function(req, res)
+    {
+        let insertQuery1 = "INSERT INTO BMPInspections (bmpID, inspectionDate, inspectEmbankment, inspectErosion, inspectSediment, inspectPonding, inspectVegetation, inspectControlStructure, inspectTrash, overallFunction, comments) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        let insertData1 = [req.body.bmpID, req.body.inspectionDate, req.body.inspectEmbankment, req.body.inspectErosion, req.body.inspectSediment, req.body.inspectPonding, req.body.inspectVegetation, req.body.inspectControlStructure, req.body.inspectTrash, req.body.overallFunction, req.body.comments];
+        let insertQuery2 = "INSERT INTO InspectionPersonnel (bmpInspectionID, inspectorID) VALUES ((SELECT bmpInspectionID FROM BMPInspections WHERE bmpID=? AND inspectionDate=? AND inspectEmbankment=? AND inspectErosion=? AND inspectSediment=? AND inspectPonding=? AND inspectVegetation=? AND inspectControlStructure=? AND inspectTrash=? AND overallFunction=? AND comments=?), ?)";
+        let insertData2 = [req.body.bmpID, req.body.inspectionDate, req.body.inspectEmbankment, req.body.inspectErosion, req.body.inspectSediment, req.body.inspectPonding, req.body.inspectVegetation, req.body.inspectControlStructure, req.body.inspectTrash, req.body.overallFunction, req.body.comments, req.body.inspectorID];
+        // Wrap queries in transaction so if one fails, changes will be undone
+        db.pool.beginTransaction(function(err){
+            if (err){throw err;}
+            // Insert form data to the BMPInspections table - auto creates PK (bmpInspectionID) for new row
+            db.pool.query(insertQuery1, insertData1, function(error, results, fields){
+                if(error){
+                    return db.pool.rollback(function(){
+                        console.log(JSON.stringify(error));
+                        res.write(JSON.stringify(error));
+                        res.end();
+                        });
+                }else{
+                    // Insert form data to InspectionPersonnel which will connect the inspection to an inspector
+                    // The value for bmpInspectionID must be selected from the row created by insertQuery1
+                    db.pool.query(insertQuery2, insertData2, function(error, results, fields){
+                        if(error){
+                            return db.pool.rollback(function(){
+                                console.log(JSON.stringify(error));
+                                res.write(JSON.stringify(error));
+                                res.end();
+                                });
+                        }else{
+                            db.pool.commit(function(err){
+                                if (err){
+                                    return db.pool.rollback(function(){
+                                        throw err;
+                                    });
+                                }else{
+                                    res.redirect('/Inspections');
+                                }
+                            });
+                        }
+                    });
+                }
+            });    
+        });
+    });
 
-// Route handler for Inspectors page
+
+// Route handler for displaying Inspectors page
 app.get('/Inspectors', function(req, res)
     {
         let tableQuery = "SELECT inspectorID, name, office, phone, email FROM Inspectors";
@@ -105,7 +161,7 @@ app.get('/Inspectors', function(req, res)
     });
 
 
-// Route handler for Maintenance Records page
+// Route handler for displaying Maintenance Records page
 app.get('/MaintenanceRecords', function(req, res)
     {
         let tableQuery = "SELECT maintenanceID, bmpID, maintenanceDate, performedBy, description FROM MaintenanceRecords";
@@ -123,7 +179,7 @@ app.get('/MaintenanceRecords', function(req, res)
 app.use(function(req,res)
     {
         res.status(404);
-        res.render('404');
+        res.send('404 Error');
     });
 
 
@@ -132,7 +188,7 @@ app.use(function(err, req, res, next)
     {
         console.error(err.stack);
         res.status(500);
-        res.render('500');
+        res.send('500 Error');
     });
   
 
