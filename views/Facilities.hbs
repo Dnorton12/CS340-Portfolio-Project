@@ -32,63 +32,63 @@
 <div class="container-md p-3 my-3 mx-auto border border-secondary">
     <h5>Add New BMP Facility</h5>
     <p>* = required field</p>
-    <form>
+    <form action="" method="post">
         <div class="row mb-3">
             <label for="inputInspector" class="col-sm-2 col-form-label">Street Address *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputStreetAddress">
+                <input type="text" class="form-control" id="inputStreetAddress" name="stAddress">
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputInspector" class="col-sm-2 col-form-label">City *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputCity">
+                <input type="text" class="form-control" id="inputCity" name="city">
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputInspector" class="col-sm-2 col-form-label">State *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputState">
+                <input type="text" class="form-control" id="inputState" name="state">
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputInspector" class="col-sm-2 col-form-label">Zip Code *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputZipCode">
+                <input type="text" class="form-control" id="inputZipCode" name="zipCode">
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputInspector" class="col-sm-2 col-form-label">Facility Name *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputFacilityName">
+                <input type="text" class="form-control" id="inputFacilityName" name="facilityName">
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputInspector" class="col-sm-2 col-form-label">Facility Type ID *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputFacilityTypeID">
+                <input type="text" class="form-control" id="inputFacilityTypeID" name="facilityTypeID">
             </div>
         </div>
-        <button type="button" class="btn btn-dark">Submit</button>
+        <button type="submit" id="submit" class="btn btn-dark">Submit</button>
     </form>
 </div>
 
 <div class="container-md p-3 my-3 mx-auto border border-secondary">
     <h5>Search for a Facility</h5>
     <p>* = required field</p>
-    <form>
+    <form action="/Facilities/search" method="get">
         <div class="row mb-3">
             <label for="inputInspector" class="col-sm-2 col-form-label">Facility Type ID *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputInspector">
+                <input type="text" class="form-control" id="inputInspector" name="searchFacilityID">
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputInspector" class="col-sm-2 col-form-label">BMP ID *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputInspector">
+                <input type="text" class="form-control" id="inputInspector" name="searchbmpID">
             </div>
         </div>
-        <button type="button" class="btn btn-dark">Submit</button>
+        <button type="submit" id="submit" class="btn btn-dark">Submit</button>
     </form>
 </div>

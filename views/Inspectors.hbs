@@ -31,13 +31,12 @@
 <div class="container-md p-3 my-3 mx-auto border border-secondary">
     <h5>Add Inspector</h5>
     <p>* = required field</p>
-    <form>
-
+    <form method="post" action="/Inspectors/add">
         {{!-- Form input for inspector name --}}
         <div class="row mb-3">
             <label for="inputInspectorName" class="col-sm-2 col-form-label">Full Name *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputInspectorName">
+                <input type="text" class="form-control" id="inputInspectorName" name="inspectorName">
             </div>
         </div>
 
@@ -45,7 +44,7 @@
         <div class="row mb-3">
             <label for="inputInspectorOffice" class="col-sm-2 col-form-label">Office Number</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputInspectorOffice">
+                <input type="text" class="form-control" id="inputInspectorOffice" name="officeNumber">
             </div>
         </div>
 
@@ -53,7 +52,7 @@
         <div class="row mb-3">
             <label for="inputInspectorPhone" class="col-sm-2 col-form-label">Phone Number *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputInspectorPhone">
+                <input type="text" class="form-control" id="inputInspectorPhone" name="phoneNumber">
             </div>
         </div>
 
@@ -61,7 +60,7 @@
         <div class="row mb-3">
             <label for="inputInspectorEmail" class="col-sm-2 col-form-label">Email Address *</label>
             <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputInspectorEmail">
+                <input type="email" class="form-control" id="inputInspectorEmail" name="email">
             </div>
         </div>
 
@@ -79,13 +78,13 @@
         Inspector ID number and fill out all input fields below. Information
         that is not being changed must still be entered in the update form.
     </p>
-    <form>
+    <form method="post" action="/Inspectors/update">
 
         {{!-- Form input for inspector ID that will be updated --}}
         <div class="row mb-3">
             <label for="inputInspectorIDUpdate" class="col-sm-2 col-form-label">Inspector ID *</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control" id="inputInspectorIDUpdate">
+                <input type="number" class="form-control" id="inputInspectorIDUpdate" name="updateinspectorID">
             </div>
         </div>
 
@@ -93,7 +92,7 @@
         <div class="row mb-3">
             <label for="inputInspectorNameUpdate" class="col-sm-2 col-form-label">Updated Name *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputInspectorNameUpdate">
+                <input type="text" class="form-control" id="inputInspectorNameUpdate" name="updateName">
             </div>
         </div>
 
@@ -101,7 +100,7 @@
         <div class="row mb-3">
             <label for="inputInspectorOfficeUpdate" class="col-sm-2 col-form-label">Updated Office Number</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputInspectorOfficeUpdate">
+                <input type="text" class="form-control" id="inputInspectorOfficeUpdate" name="updateOffice">
             </div>
         </div>
 
@@ -109,7 +108,7 @@
         <div class="row mb-3">
             <label for="inputInspectorPhoneUpdate" class="col-sm-2 col-form-label">Updated Phone Number *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputInspectorPhoneUpdate">
+                <input type="text" class="form-control" id="inputInspectorPhoneUpdate" name="updatePhone">
             </div>
         </div>
 
@@ -117,12 +116,12 @@
         <div class="row mb-3">
             <label for="inputInspectorEmailUpdate" class="col-sm-2 col-form-label">Updated Email Address *</label>
             <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputInspectorEmailUpdate">
+                <input type="email" class="form-control" id="inputInspectorEmailUpdate" name="updateEmail">
             </div>
         </div>
 
         {{!-- Update form submit --}}
-        <button type="submit" class="btn btn-dark">Update</button>
+        <button type="submit" id="submit" class="btn btn-dark">Update</button>
     </form>
 </div>
 
@@ -136,17 +135,17 @@
         Inspector ID below. Once deleted, this information is removed and
         cannot be recovered. <strong>Delete carefully.</strong>
     </p>
-    <form>
+    <form action="/Inspectors/delete" method="post">
 
         {{!-- Form input for inspector ID that will be deleted --}}
         <div class="row mb-3">
             <label for="inputInspectorIDDelete" class="col-sm-2 col-form-label">Inspector ID for Deletion *</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control" id="inputInspectorIDDelete">
+                <input type="number" class="form-control" id="inputInspectorIDDelete" name="deleteinspectorID">
             </div>
         </div>
 
         {{!-- Delete form submit --}}
-        <button type="submit" class="btn btn-dark">Delete</button>
+        <button type="submit" id="submit" class="btn btn-dark">Delete</button>
     </form>
 </div>

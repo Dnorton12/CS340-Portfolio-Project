@@ -22,20 +22,20 @@
 <div class="container-md p-3 my-3 mx-auto border border-secondary">
     <h5>Add New BMP Inspection and Personnel</h5>
     <p>* = required field</p>
-    <form>
+    <form method="post" action="/InspectionPersonnel/add">
         <div class="row mb-3">
             <label for="inputInspector" class="col-sm-2 col-form-label">BMP Inspection ID *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputBMPInspectionID">
+                <input type="number" class="form-control" id="inputBMPInspectionID" name="addbmpID">
             </div>
         </div>
         <div class="row mb-3">
             <label for="inputInspector" class="col-sm-2 col-form-label">Inspector ID *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputInspectorID">
+                <input type="number" class="form-control" id="inputInspectorID" name="addinspectorID">
             </div>
         </div>
-        <button type="button" class="btn btn-dark">Submit</button>
+        <button type="submit" id="submit" class="btn btn-dark">Submit</button>
     </form>
 </div>
 
@@ -48,13 +48,13 @@
         please enter the BMP Inspection ID. The associated Inspector ID can then 
         be changed as needed. 
     </p>
-    <form>
+    <form method="post" action="/InspectionPersonnel/update">
 
         {{!-- Form input for BMP inspection ID that will be updated --}}
         <div class="row mb-3">
             <label for="inputInspectionPersonnelBMPInspectionUpdate" class="col-sm-2 col-form-label">BMP Inspection ID *</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control" id="inputInspectionPersonnelBMPInspectionUpdate">
+                <input type="number" class="form-control" id="inputInspectionPersonnelBMPInspectionUpdate" name="updatebmpInspectionID">
             </div>
         </div>
 
@@ -62,12 +62,12 @@
         <div class="row mb-3">
             <label for="inputInspectionPersonnelInspectorUpdate" class="col-sm-2 col-form-label">Updated Inspector ID</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputInspectionPersonnelInspectorUpdate">
+                <input type="number" class="form-control" id="inputInspectionPersonnelInspectorUpdate" name="updateinspectorID">
             </div>
         </div>
 
         {{!-- Update form submit --}}
-        <button type="submit" class="btn btn-dark">Update</button>
+        <button type="submit" id="submit" class="btn btn-dark">Update</button>
     </form>
 </div>
 
@@ -77,30 +77,31 @@
     <h5>Delete BMP Inspection and Personnel</h5>
     <p>* = required field</p>
     <p>
-        To delete all batabase information for a relationship between a specific 
+        To delete all database information for a relationship between a specific 
         BMP Inspection and Inspector, enter the required IDs below. Once deleted, 
         this information is removed and cannot be recovered. 
         <strong>Delete carefully.</strong>
     </p>
-    <form>
+    <form action="/InspectionPersonnel/delete" method="post">
 
         {{!-- Form input for BMP inspection ID that will be deleted --}}
         <div class="row mb-3">
             <label for="inputInspectionPersonnelBMPInspectionDelete" class="col-sm-2 col-form-label">BMP Inspection ID for Deletion *</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control" id="inputInspectionPersonnelBMPInspectionDelete">
+                <input type="number" class="form-control" id="inputInspectionPersonnelBMPInspectionDelete" name="deletebmpID">
             </div>
         </div>
 
         {{!-- Form input for inspector ID that will be deleted --}}
         <div class="row mb-3">
             <label for="inputInspectionPersonnelInspectorDelete" class="col-sm-2 col-form-label">Inspector ID for Deletion *</label>
+            <label for="inputInspector" class="col-sm-2 col-form-label">Inspector ID *</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control" id="inputInspectionPersonnelInspectorDelete">
+                <input type="number" class="form-control" id="inputInspectionPersonnelInspectorDelete" name="deleteinspectorID">
             </div>
         </div>
 
         {{!-- Delete form submit --}}
-        <button type="submit" class="btn btn-dark">Delete</button>
+        <button type="submit" id="submit" class="btn btn-dark">Delete</button>
     </form>
 </div>

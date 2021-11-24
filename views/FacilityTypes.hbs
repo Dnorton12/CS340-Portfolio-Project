@@ -38,13 +38,13 @@
 <div class="container-md p-3 my-3 mx-auto border border-secondary">
     <h5>Add BMP Facility Type</h5>
     <p>* = required field</p>
-    <form>
 
+    <form method="post" action="">
         {{!-- Form input for facility type name --}}
         <div class="row mb-3">
             <label for="inputTypeName" class="col-sm-2 col-form-label">Name of Facility Type *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputTypeName" name="facilityTypeName">
+                <input type="text" class="form-control" id="inputTypeName" name="facilityName">
             </div>
         </div>
 
@@ -52,7 +52,7 @@
         <div class="row mb-3">
             <label for="inputTypeDesc" class="col-sm-2 col-form-label">Description *</label>
             <div class="col-sm-10">
-                <textarea class="form-control" id="inputTypeDesc" name="facilityTypeDescription"></textarea>
+                <textarea class="form-control" id="inputTypeDesc" name="descriptionName"></textarea>
             </div>
         </div>
 

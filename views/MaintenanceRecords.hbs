@@ -31,13 +31,12 @@
 <div class="container-md p-3 my-3 mx-auto border border-secondary">
     <h5>Add Maintenance Record</h5>
     <p>* = required field</p>
-    <form>
-
+    <form method="post" action="">
         {{!-- Form input for BMP ID --}}
         <div class="row mb-3">
             <label for="inputMaintenanceBMPID" class="col-sm-2 col-form-label">BMP ID *</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control" id="inputMaintenanceBMPID">
+                <input type="number" class="form-control" id="inputMaintenanceBMPID" name="bmpId">
             </div>
         </div>
 
@@ -45,7 +44,7 @@
         <div class="row mb-3">
             <label for="inputMaintenanceDate" class="col-sm-2 col-form-label">Maintenance Date *</label>
             <div class="col-sm-10">
-                <input type="date" class="form-control" id="inputMaintenanceDate">
+                <input type="date" class="form-control" id="inputMaintenanceDate" name="maintenanceDate">
             </div>
         </div>
 
@@ -53,7 +52,7 @@
         <div class="row mb-3">
             <label for="inputMaintenancePerformedBy" class="col-sm-2 col-form-label">Performed By *</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputMaintenancePerformedBy">
+                <input type="text" class="form-control" id="inputMaintenancePerformedBy" name="performedBy">
             </div>
         </div>
 
@@ -61,7 +60,7 @@
         <div class="row mb-3">
             <label for="inputMaintenanceDescription" class="col-sm-2 col-form-label">Description of Maintenance *</label>
             <div class="col-sm-10">
-                <textarea class="form-control" id="inputMaintenanceDescription"></textarea>
+                <textarea class="form-control" id="inputMaintenanceDescription" name="description"></textarea>
             </div>
         </div>
 
