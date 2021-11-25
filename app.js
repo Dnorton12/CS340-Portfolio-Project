@@ -30,8 +30,17 @@ app.get('/', function(req, res)
 // Route handler for BMP Facilities page
 app.get('/Facilities', function(req, res)
     {
-        // Query for retrieving Facilities data that will be displayed in a table
-        let tableQuery = "SELECT bmpID, stAddress, city, state, zipCode, name, facilityTypeID FROM BMPFacilities";
+        let tableQuery;
+        // If there is no query string, display all data in table
+        if (req.query.searchFacilityType === undefined){
+            // Query for retrieving all Facilities data that will be displayed in a table
+            tableQuery = "SELECT bmpID, stAddress, city, state, zipCode, name, facilityTypeID FROM BMPFacilities";
+        }
+        // Otherwise, display rows specified by query string
+        else{
+            // Query for retrieving Facilities data with the specified FacilityTypeID
+            tableQuery = `SELECT bmpID, stAddress, city, state, zipCode, name, facilityTypeID FROM BMPFacilities WHERE facilityTypeID=${req.query.searchFacilityType}`;
+        }
         // Execute query on the database
         db.pool.query(tableQuery, function(error, rows, fields){
             // Render page with returned data after query completes
@@ -85,21 +94,6 @@ app.post('/FacilityTypes', function(req, res)
             }
         });
     });
-    
-app.post('/FacilityTypes', function(req, res) 
-    {
-        let insertQuery = "INSERT INTO FacilityTypes (facilityTypeName, facilityTypeDescription) VALUES (?,?)"
-        let insertData = [req.body.facilityName, req.body.descriptionName]
-        db.pool.query(insertQuery, insertData, function(error, rows, fields) {
-            if(error) {
-                res.write(JSON.stringify(error));
-                res.end();
-            }else {
-                res.redirect('/FacilityTypes')
-            }
-        }) 
-    })
-
 
 
 // Route handler for displaying Inspection Personnel page
