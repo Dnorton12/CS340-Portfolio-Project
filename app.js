@@ -286,14 +286,6 @@ app.use(function(req,res)
         res.send('404 Error');
     });
 
-// Route handler for internal server error
-app.use(function(err, req, res, next)
-    {
-        console.error(err.stack);
-        res.status(500);
-        res.render('500');
-    });
-  
 
 // Route handler for internal server error
 app.use(function(err, req, res, next)
